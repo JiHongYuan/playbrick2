@@ -1,0 +1,19 @@
+# 窗口
+window:
+  width: 600
+  height: 420
+
+# 球
+ball:
+  width: 25
+  height: 25
+
+# 块
+block:
+  width: 75
+  height: 75
+
+# 挡板
+paddle:
+  width: 125
+  height: 25
