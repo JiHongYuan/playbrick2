@@ -23,7 +23,7 @@ public class Application {
             JFrameWindow frame = applicationContext.getBean(JFrameWindow.class);
             frame.setInit();
             frame.setTitle("打砖块");
-            frame.setVisible(true);
+
         });
         BallService ballService = applicationContext.getBean(BallService.class);
         ballService.f();

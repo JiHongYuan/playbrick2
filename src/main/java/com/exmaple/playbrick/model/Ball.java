@@ -2,42 +2,23 @@ package com.exmaple.playbrick.model;
 
 
 import com.exmaple.playbrick.annotation.Value;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author jihongyuan
  * @date 2020/1/9 0:47
  */
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class Ball extends BaseModel {
 
-    private int speedX = 5;
-    private int speedY = 5;
-    private boolean fired = false;
+    private Integer speedX = 5;
+    private Integer speedY = 5;
+    private Boolean fired = false;
 
-    public Ball(int width, int height, int positionX, int positionY) {
+    public Ball(Integer width, Integer height, Integer positionX, Integer positionY) {
         super(width, height, positionX, positionY);
     }
 
-    public int getSpeedX() {
-        return speedX;
-    }
-
-    public void setSpeedX(int speedX) {
-        this.speedX = speedX;
-    }
-
-    public int getSpeedY() {
-        return speedY;
-    }
-
-    public void setSpeedY(int speedY) {
-        this.speedY = speedY;
-    }
-
-    public boolean isFired() {
-        return fired;
-    }
-
-    public void setFired(boolean fired) {
-        this.fired = fired;
-    }
 }
