@@ -1,8 +1,16 @@
 package com.exmaple.playbrick.annotation;
 
+import java.lang.annotation.*;
+
 /**
  * @author jihongyuan
- * @date 2020/1/9 1:08
+ * @date 2020/1/12 11:12
  */
-public interface Value {
+
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Value {
+    /** {code} */
+    String value();
 }

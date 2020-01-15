@@ -1,6 +1,8 @@
 package com.exmaple.playbrick.model;
 
 
+import com.exmaple.playbrick.annotation.Value;
+
 /**
  * @author jihongyuan
  * @date 2020/1/9 0:47
