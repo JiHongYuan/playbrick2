@@ -8,6 +8,7 @@ import com.exmaple.playbrick.service.PaddleService;
 import com.exmaple.playbrick.service.impl.BallServiceImpl;
 import com.exmaple.playbrick.service.impl.PaddleServiceImpl;
 import com.exmaple.playbrick.window.JFrameWindow;
+import com.exmaple.playbrick.window.component.JPanelWindow;
 import com.exmaple.playbrick.window.event.EventKeyListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,8 +34,7 @@ public class BeanConfig {
 
     @Bean
     public Ball ball() {
-        Ball ball = new Ball(ballWidth, ballHeight, ballPositionX, ballPositionY);
-        return ball;
+        return new Ball(ballWidth, ballHeight, ballPositionX, ballPositionY);
     }
 
     @Value("paddle.width")
@@ -48,8 +48,7 @@ public class BeanConfig {
 
     @Bean
     public Paddle paddle() {
-        Paddle paddle = new Paddle(paddleWidth, paddleHeight, paddlePositionX, paddlePositionY);
-        return paddle;
+        return new Paddle(paddleWidth, paddleHeight, paddlePositionX, paddlePositionY);
     }
 
     @Bean
@@ -77,4 +76,8 @@ public class BeanConfig {
         return new JFrameWindow(windowWidth, windowHeight);
     }
 
+    @Bean
+    public JPanelWindow jPanelWindow(){
+        return new JPanelWindow();
+    }
 }

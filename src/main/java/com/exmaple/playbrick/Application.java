@@ -26,8 +26,6 @@ public class Application {
 
         });
         BallService ballService = applicationContext.getBean(BallService.class);
-        ballService.f();
     }
-
 
 }

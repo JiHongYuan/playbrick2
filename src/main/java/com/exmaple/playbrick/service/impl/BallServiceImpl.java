@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.awt.*;
 
 /**
  * @author jihongyuan
@@ -17,7 +18,8 @@ public class BallServiceImpl implements BallService {
     private Ball ball;
 
     @Override
-    public void f() {
-        System.out.println(ball.getSpeedX());
+    public void draw(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        g2.drawOval(ball.getPositionX(),ball.getPositionY(),ball.getWidth(),ball.getHeight());
     }
 }
