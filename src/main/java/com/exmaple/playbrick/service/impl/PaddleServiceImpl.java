@@ -13,7 +13,7 @@ import java.awt.*;
  * @date 2020/1/12 9:31
  */
 @Service
-public class PaddleServiceImpl implements PaddleService {
+public class PaddleServiceImpl extends ServiceImpl implements PaddleService {
     @Resource
     private Paddle paddle;
 
@@ -21,5 +21,15 @@ public class PaddleServiceImpl implements PaddleService {
     public void draw(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.drawRect(paddle.getPositionX(), paddle.getPositionY(), paddle.getWidth(), paddle.getHeight());
+    }
+
+    @Override
+    public void moveLeft() {
+
+    }
+
+    @Override
+    public void moveRight() {
+
     }
 }

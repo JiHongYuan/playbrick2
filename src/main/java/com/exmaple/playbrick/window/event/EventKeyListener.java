@@ -1,7 +1,10 @@
 package com.exmaple.playbrick.window.event;
 
+import com.exmaple.playbrick.service.BallService;
+import com.exmaple.playbrick.service.PaddleService;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -11,17 +14,19 @@ import java.awt.event.KeyListener;
  */
 public class EventKeyListener implements KeyListener {
 
+    @Resource
+    private PaddleService paddleService;
+    @Resource
+    private BallService ballService;
+
     @Override
     public void keyTyped(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_LEFT | KeyEvent.VK_A:
+                paddleService.moveLeft();
                 break;
-            case KeyEvent.VK_RIGHT:
-                break;
-            case KeyEvent.VK_A:
-                System.out.println("123");
-                break;
-            case KeyEvent.VK_D:
+            case KeyEvent.VK_RIGHT | KeyEvent.VK_D:
+                paddleService.moveRight();
                 break;
             case KeyEvent.VK_F:
                 break;

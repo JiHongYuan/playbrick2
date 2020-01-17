@@ -15,7 +15,7 @@ public class Ball extends BaseModel {
 
     private Integer speedX = 5;
     private Integer speedY = 5;
-    private Boolean fired = false;
+    private Boolean fire = true;
 
     public Ball(Integer width, Integer height, Integer positionX, Integer positionY) {
         super(width, height, positionX, positionY);

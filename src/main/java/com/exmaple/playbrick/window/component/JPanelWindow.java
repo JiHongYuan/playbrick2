@@ -23,7 +23,6 @@ public class JPanelWindow extends JPanel {
         super.paint(g);
         ballService.draw(g);
         paddleService.draw(g);
-
     }
 
     @Override

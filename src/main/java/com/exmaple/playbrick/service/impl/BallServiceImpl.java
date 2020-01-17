@@ -13,13 +13,30 @@ import java.awt.*;
  * @date 2020/1/12 9:29
  */
 @Service
-public class BallServiceImpl implements BallService {
+public class BallServiceImpl extends ServiceImpl implements BallService {
     @Resource
     private Ball ball;
 
     @Override
     public void draw(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        g2.drawOval(ball.getPositionX(),ball.getPositionY(),ball.getWidth(),ball.getHeight());
+        g2.drawOval(ball.getPositionX(), ball.getPositionY(), ball.getWidth(), ball.getHeight());
+    }
+
+    @Override
+    public void move() {
+        if (ball.getFire()) {
+            if (ball.getPositionX() <= 0 || ball.getPositionX() + ball.getWidth() >= width) {
+                ball.setSpeedX(ball.getSpeedX() * -1);
+            }
+
+            if (ball.getPositionY() <= 0 || ball.getPositionY() + ball.getHeight() >= height) {
+                ball.setSpeedY(ball.getSpeedY() * -1);
+            }
+
+            ball.setPositionX(ball.getPositionX() + ball.getSpeedX());
+            ball.setPositionY(ball.getPositionY() + ball.getSpeedY());
+        }
+
     }
 }
