@@ -14,5 +14,5 @@
 ##1 环境介绍
 + maven项目构建
 + Spring Core、Spring Context
-+ 配置文件采用yml
++ 配置文件使用yml
 + Java Swing
