@@ -16,9 +16,15 @@ public interface IService {
     void draw(Graphics g);
 
     /**
+     * move
+     */
+    void move();
+
+    /**
      * 设置组件大小
-     * @param width 宽度
+     *
+     * @param width  宽度
      * @param height 高度
-     * */
+     */
     void setComponentSize(int width, int height);
 }

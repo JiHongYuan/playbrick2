@@ -21,28 +21,54 @@ public class EventKeyListener implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_LEFT | KeyEvent.VK_A:
-                paddleService.moveLeft();
-                break;
-            case KeyEvent.VK_RIGHT | KeyEvent.VK_D:
-                paddleService.moveRight();
-                break;
-            case KeyEvent.VK_F:
-                break;
-            default:
-                break;
 
-        }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                paddleService.setMoveLeft();
+                break;
+            case KeyEvent.VK_RIGHT:
+                paddleService.setMoveRight();
+                break;
+            case KeyEvent.VK_A:
+                paddleService.setMoveLeft();
+                break;
+            case KeyEvent.VK_D:
+                paddleService.setMoveRight();
+                break;
+            case KeyEvent.VK_F:
+                ballService.setMove();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                paddleService.setStop();
+                break;
+            case KeyEvent.VK_RIGHT:
+                paddleService.setStop();
+                break;
+            case KeyEvent.VK_A:
+                paddleService.setStop();
+                break;
+            case KeyEvent.VK_D:
+                paddleService.setStop();
+                break;
+            case KeyEvent.VK_F:
+                break;
+            case KeyEvent.VK_P:
+                ballService.setStop();
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -6,12 +6,18 @@ package com.exmaple.playbrick.service;
  */
 public interface PaddleService extends IService {
     /**
-     * 左移
-     * */
-    void moveLeft();
+     * 停止 设置状态
+     */
+    void setStop();
 
     /**
-     * 右移
-     * */
-    void moveRight();
+     * 左移 设置状态
+     */
+    void setMoveLeft();
+
+    /**
+     * 右移 设置状态
+     */
+    void setMoveRight();
+
 }

@@ -9,6 +9,8 @@ ball:
   height: 25
   positionX: 175
   positionY: 200
+  speedX: 1
+  speedY: 1
 
 # 块
 block:
@@ -20,4 +22,5 @@ paddle:
   width: 125
   height: 25
   positionX: 125
-  positionY: 25
+  positionY: 300
+  speed: 5

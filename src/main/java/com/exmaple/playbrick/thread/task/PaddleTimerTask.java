@@ -20,6 +20,6 @@ public class PaddleTimerTask extends TimerTask {
 
     @Override
     public void run() {
-
+        paddleService.move();
     }
 }

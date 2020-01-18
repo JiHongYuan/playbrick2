@@ -13,8 +13,10 @@ import java.awt.*;
  * @date 2020/1/9 0:47
  */
 public class Application {
+    public static AnnotationConfigApplicationContext applicationContext;
+
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(InitializationConfig.class);
         applicationContext.register(BeanConfig.class);
         applicationContext.refresh();
@@ -27,5 +29,6 @@ public class Application {
         });
         BallService ballService = applicationContext.getBean(BallService.class);
     }
+
 
 }

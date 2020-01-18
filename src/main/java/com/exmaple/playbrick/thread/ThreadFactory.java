@@ -23,9 +23,12 @@ public class ThreadFactory {
     private static ScheduledExecutorService uiScheduledExecutorService;
     private static ScheduledExecutorService actionScheduledExecutorService;
 
+    private static ExecutorService executorService;
+
     static {
         uiScheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         actionScheduledExecutorService = Executors.newScheduledThreadPool(2);
+        executorService = Executors.newFixedThreadPool(5);
     }
 
     public static void createPaintTimerTask(JPanelWindow jPanelWindow) {
@@ -36,11 +39,15 @@ public class ThreadFactory {
 
     public static void createBallTimerTask(BallService ballService) {
         actionScheduledExecutorService.scheduleAtFixedRate(
-                new BallTimerTask(ballService), INITIAL_DELAY, PERIOD, TimeUnit.MILLISECONDS);
+                new BallTimerTask(ballService), INITIAL_DELAY, PERIOD / 5, TimeUnit.MILLISECONDS);
     }
 
     public static void createPaddleTimerTask(PaddleService paddleService) {
         actionScheduledExecutorService.scheduleAtFixedRate(
                 new PaddleTimerTask(paddleService), INITIAL_DELAY, PERIOD, TimeUnit.MILLISECONDS);
+    }
+
+    public static void create(Runnable runnable) {
+        executorService.execute(runnable);
     }
 }

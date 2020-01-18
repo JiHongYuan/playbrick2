@@ -25,6 +25,11 @@ public class ServiceImpl implements IService {
     }
 
     @Override
+    public void move() {
+
+    }
+
+    @Override
     public void setComponentSize(int width, int height) {
         this.width = width;
         this.height = height;

@@ -1,5 +1,6 @@
 package com.exmaple.playbrick.service.impl;
 
+import com.exmaple.playbrick.enums.PaddleMoveStatusEnum;
 import com.exmaple.playbrick.model.Paddle;
 import com.exmaple.playbrick.service.PaddleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,32 @@ public class PaddleServiceImpl extends ServiceImpl implements PaddleService {
     }
 
     @Override
-    public void moveLeft() {
-
+    public void setStop() {
+        paddle.setMoveStatus(PaddleMoveStatusEnum.STOP.getValue());
     }
 
     @Override
-    public void moveRight() {
+    public void setMoveLeft() {
+        paddle.setMoveStatus(PaddleMoveStatusEnum.MOVE_LEFT.getValue());
+    }
 
+    @Override
+    public void setMoveRight() {
+        paddle.setMoveStatus(PaddleMoveStatusEnum.MOVE_RIGHT.getValue());
+    }
+
+    @Override
+    public void move() {
+        Integer status = paddle.getMoveStatus();
+
+        if (PaddleMoveStatusEnum.MOVE_LEFT.getValue().equals(status)) {
+            if (paddle.getPositionX() > 0) {
+                paddle.setPositionX(paddle.getPositionX() - paddle.getSpeed());
+            }
+        } else if (PaddleMoveStatusEnum.MOVE_RIGHT.getValue().equals(status)) {
+            if (paddle.getPositionX() + paddle.getWidth() < width) {
+                paddle.setPositionX(paddle.getPositionX() + paddle.getSpeed());
+            }
+        }
     }
 }

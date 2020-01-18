@@ -7,6 +7,7 @@ import com.exmaple.playbrick.service.BallService;
 import com.exmaple.playbrick.service.PaddleService;
 import com.exmaple.playbrick.service.impl.BallServiceImpl;
 import com.exmaple.playbrick.service.impl.PaddleServiceImpl;
+import com.exmaple.playbrick.thread.action.CollisionThread;
 import com.exmaple.playbrick.window.JFrameWindow;
 import com.exmaple.playbrick.window.component.JPanelWindow;
 import com.exmaple.playbrick.window.event.EventKeyListener;
@@ -31,10 +32,14 @@ public class BeanConfig {
     private Integer ballPositionX;
     @Value("ball.positionY")
     private Integer ballPositionY;
+    @Value("ball.speedX")
+    private Integer ballSpeedX;
+    @Value("ball.speedY")
+    private Integer ballSpeedY;
 
     @Bean
     public Ball ball() {
-        return new Ball(ballWidth, ballHeight, ballPositionX, ballPositionY);
+        return new Ball(ballWidth, ballHeight, ballPositionX, ballPositionY, ballSpeedX, ballSpeedY);
     }
 
     @Value("paddle.width")
@@ -45,10 +50,12 @@ public class BeanConfig {
     private Integer paddlePositionX;
     @Value("paddle.positionY")
     private Integer paddlePositionY;
+    @Value("paddle.speed")
+    private Integer paddleSpeed;
 
     @Bean
     public Paddle paddle() {
-        return new Paddle(paddleWidth, paddleHeight, paddlePositionX, paddlePositionY);
+        return new Paddle(paddleWidth, paddleHeight, paddlePositionX, paddlePositionY, paddleSpeed);
     }
 
     @Bean
@@ -77,7 +84,12 @@ public class BeanConfig {
     }
 
     @Bean
-    public JPanelWindow jPanelWindow(){
+    public JPanelWindow jPanelWindow() {
         return new JPanelWindow();
+    }
+
+    @Bean
+    public CollisionThread collisionThread() {
+        return new CollisionThread();
     }
 }

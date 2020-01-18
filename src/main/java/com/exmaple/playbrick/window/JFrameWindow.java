@@ -1,8 +1,10 @@
 package com.exmaple.playbrick.window;
 
+import com.exmaple.playbrick.Application;
 import com.exmaple.playbrick.service.BallService;
 import com.exmaple.playbrick.service.PaddleService;
 import com.exmaple.playbrick.thread.ThreadFactory;
+import com.exmaple.playbrick.thread.action.CollisionThread;
 import com.exmaple.playbrick.window.component.JPanelWindow;
 import com.exmaple.playbrick.window.event.EventKeyListener;
 
@@ -27,8 +29,9 @@ public class JFrameWindow extends JFrame {
     }
 
     public void setInit() {
-        // 必须先添加jpandel才能获取容器大小
+        addKeyListener(eventKeyListener);
         add(jPanelWindow);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -39,10 +42,9 @@ public class JFrameWindow extends JFrame {
         ballService.setComponentSize(w, h);
         paddleService.setComponentSize(w, h);
 
-        addKeyListener(eventKeyListener);
-
         ThreadFactory.createPaintTimerTask(jPanelWindow);
         ThreadFactory.createBallTimerTask(ballService);
         ThreadFactory.createPaddleTimerTask(paddleService);
+        ThreadFactory.create(Application.applicationContext.getBean(CollisionThread.class));
     }
 }

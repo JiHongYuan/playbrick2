@@ -6,11 +6,17 @@ package com.exmaple.playbrick.service;
  */
 public interface BallService extends IService {
     /**
-     * 移动
+     * 移动 设置状态
      */
-    void move();
+    void setMove();
 
-//    Boolean getFireStatus();
-//
-//    Boolean setFireStatus();
+    /**
+     *  停止 设置状态
+     * */
+    void setStop();
+
+    /**
+     * 反弹
+     */
+    void rebound();
 }
