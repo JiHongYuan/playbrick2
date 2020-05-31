@@ -10,6 +10,7 @@ import com.exmaple.playbrick.window.event.EventKeyListener;
 
 import javax.annotation.Resource;
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author jihongyuan
@@ -29,11 +30,11 @@ public class JFrameWindow extends JFrame {
     }
 
     public void setInit() {
-        addKeyListener(eventKeyListener);
-        add(jPanelWindow);
+        this.addKeyListener(eventKeyListener);
+        this.add(jPanelWindow);
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setVisible(true);
 
         int w = jPanelWindow.getWidth();
         int h = jPanelWindow.getHeight();
@@ -45,6 +46,7 @@ public class JFrameWindow extends JFrame {
         ThreadFactory.createPaintTimerTask(jPanelWindow);
         ThreadFactory.createBallTimerTask(ballService);
         ThreadFactory.createPaddleTimerTask(paddleService);
-        ThreadFactory.create(Application.applicationContext.getBean(CollisionThread.class));
+        ThreadFactory.create(Application.APPLICATION_CONTEXT.getBean(CollisionThread.class));
+
     }
 }

@@ -5,7 +5,6 @@ import com.exmaple.playbrick.utils.YamlUtil;
 import com.exmaple.playbrick.utils.reflect.ReflectUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.lang.reflect.Field;

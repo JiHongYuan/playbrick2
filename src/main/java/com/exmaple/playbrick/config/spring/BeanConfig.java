@@ -14,8 +14,6 @@ import com.exmaple.playbrick.window.event.EventKeyListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
-
 /**
  * @author jihongyuan
  * @date 2020/1/11 23:22

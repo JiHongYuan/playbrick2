@@ -2,7 +2,6 @@ package com.exmaple.playbrick.window.event;
 
 import com.exmaple.playbrick.service.BallService;
 import com.exmaple.playbrick.service.PaddleService;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.awt.event.KeyEvent;

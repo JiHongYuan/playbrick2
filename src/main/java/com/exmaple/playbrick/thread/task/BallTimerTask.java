@@ -1,7 +1,6 @@
 package com.exmaple.playbrick.thread.task;
 
 import com.exmaple.playbrick.service.BallService;
-import com.exmaple.playbrick.window.component.JPanelWindow;
 
 import java.util.TimerTask;
 

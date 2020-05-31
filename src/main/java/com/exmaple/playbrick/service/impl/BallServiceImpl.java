@@ -3,7 +3,6 @@ package com.exmaple.playbrick.service.impl;
 import com.exmaple.playbrick.enums.BallMoveStatusEnum;
 import com.exmaple.playbrick.model.Ball;
 import com.exmaple.playbrick.service.BallService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -13,21 +13,20 @@ import java.awt.*;
  * @date 2020/1/9 0:47
  */
 public class Application {
-    public static AnnotationConfigApplicationContext applicationContext;
+    public static final AnnotationConfigApplicationContext APPLICATION_CONTEXT = new AnnotationConfigApplicationContext();
 
     public static void main(String[] args) {
-        applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(InitializationConfig.class);
-        applicationContext.register(BeanConfig.class);
-        applicationContext.refresh();
+        APPLICATION_CONTEXT.register(InitializationConfig.class);
+        APPLICATION_CONTEXT.register(BeanConfig.class);
+        APPLICATION_CONTEXT.refresh();
 
         EventQueue.invokeLater(() -> {
-            JFrameWindow frame = applicationContext.getBean(JFrameWindow.class);
+            JFrameWindow frame = APPLICATION_CONTEXT.getBean(JFrameWindow.class);
             frame.setInit();
             frame.setTitle("打砖块");
 
         });
-        BallService ballService = applicationContext.getBean(BallService.class);
+        BallService ballService = APPLICATION_CONTEXT.getBean(BallService.class);
     }
 
 

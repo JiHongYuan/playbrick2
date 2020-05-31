@@ -21,7 +21,11 @@ public class CollisionThread implements Runnable {
     @Override
     public void run() {
         while (true){
-            System.out.println(11);
+            try {
+                Thread.sleep(0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             double closestPointX = ball.getPositionX();
             double closestPointY = ball.getPositionY();
 

@@ -1,10 +1,7 @@
 package com.exmaple.playbrick.model;
 
 
-import com.exmaple.playbrick.annotation.Value;
 import com.exmaple.playbrick.enums.BallMoveStatusEnum;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * @author jihongyuan
